@@ -29,6 +29,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.3.4
   transition:
+  getwidget:
 
 dev_dependencies:
   flutter_test:

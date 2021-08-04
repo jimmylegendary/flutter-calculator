@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calculator/pages/calculator_app_bar.dart';
 import 'package:flutter_calculator/pages/calculator_drawer.dart';
+import 'package:flutter_calculator/widgets/molecules/numbers_pad.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 
@@ -14,7 +15,7 @@ class SimpleCalculator extends GetView<SimpleCalculatorController> {
         drawer: CalculatorDrawer(),
         appBar: CalculatorAppBar('계산기'),
         body: Center(
-          child: Text('계산기'),
+          child: NumbersPad(),
         ));
   }
 }
