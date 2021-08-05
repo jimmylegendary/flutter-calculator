@@ -2,10 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calculator/assets/colors.dart';
 import 'package:flutter_calculator/pages/simple_calc.dart';
-import 'package:flutter_calculator/widgets/atoms/txt_btn.dart';
-import 'package:flutter_calculator/widgets/atoms/icon_btn.dart';
 import 'package:flutter_calculator/widgets/atoms/txt_highlight_btn.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class SimpleOperationPad extends StatelessWidget {
@@ -43,14 +40,17 @@ class SimpleOperationPad extends StatelessWidget {
             ),
             CalcTextHLButton(
               text: 'AC',
-              onPressed: () => contoller.input('AC'),
+              onPressed: () => contoller.resetAll(),
               bgColor: CalcColor.BUTTON_BG_HIGHLIGHT2,
+            ),
+            CalcTextHLButton(
+              text: '( )',
+              onPressed: () => contoller.input('( )'),
             ),
             CalcTextHLButton(
               text: '=',
               onPressed: () => contoller.input('='),
             ),
-            CalcIconButton(icon: FontAwesomeIcons.calculator, onPressed: () {}),
           ],
         ),
       ],

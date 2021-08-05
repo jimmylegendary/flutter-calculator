@@ -14,6 +14,7 @@ class ScreenText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(text,
+        textAlign: TextAlign.right,
         style: GoogleFonts.rubik(
           textStyle: TextStyle(
             color: CalcColor.SCREEN_TEXT,

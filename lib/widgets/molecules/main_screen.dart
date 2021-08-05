@@ -7,14 +7,14 @@ class MainScreen extends StatelessWidget {
   final controller = Get.find<SimpleCalculatorController>();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.only(right: 12),
-        child: ScreenText(
-          text: controller.expression.value,
-          fontSize: 46,
-        ),
-      ),
-    );
+    return Obx(() => Container(
+          child: Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: ScreenText(
+              text: controller.expression.value,
+              fontSize: 46,
+            ),
+          ),
+        ));
   }
 }

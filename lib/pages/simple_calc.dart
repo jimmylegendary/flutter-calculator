@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calculator/pages/calculator_app_bar.dart';
@@ -22,7 +24,9 @@ class SimpleCalculator extends GetView<SimpleCalculatorController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              MainScreen(),
+              Expanded(
+                child: MainScreen(),
+              ),
               PreviewScreen(),
               SizedBox(height: 40),
               Row(
@@ -44,6 +48,7 @@ class SimpleCalculatorController extends GetxController {
   var result = ''.obs;
   var operation = ''.obs;
   var expression = ''.obs;
+  var isBracketOpen = false.obs;
 
   resetAll() {
     firstNumber.value = '';
@@ -51,9 +56,14 @@ class SimpleCalculatorController extends GetxController {
     operation.value = '';
     result.value = '';
     expression.value = '';
+    isBracketOpen.value = false;
   }
 
   input(String input) {
+    if (input == '( )') {
+      input = isBracketOpen.value ? ')' : '(';
+      isBracketOpen.value = !isBracketOpen.value;
+    }
     expression.value += input;
     print(expression);
   }
