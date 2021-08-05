@@ -32,6 +32,7 @@ dependencies:
   getwidget:
   font_awesome_flutter:
   google_fonts:
+  math_expressions:
 
 dev_dependencies:
   flutter_test:

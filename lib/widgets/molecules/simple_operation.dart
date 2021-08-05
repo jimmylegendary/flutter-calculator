@@ -49,7 +49,7 @@ class SimpleOperationPad extends StatelessWidget {
             ),
             CalcTextHLButton(
               text: '=',
-              onPressed: () => contoller.input('='),
+              onPressed: () => contoller.calculate(),
             ),
           ],
         ),

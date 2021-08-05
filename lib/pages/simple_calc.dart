@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calculator/pages/calculator_app_bar.dart';
@@ -10,6 +8,7 @@ import 'package:flutter_calculator/widgets/molecules/preview_screen.dart';
 import 'package:flutter_calculator/widgets/molecules/simple_operation.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class SimpleCalculator extends GetView<SimpleCalculatorController> {
   SimpleCalculator({Key? key}) : super(key: key);
@@ -49,6 +48,7 @@ class SimpleCalculatorController extends GetxController {
   var operation = ''.obs;
   var expression = ''.obs;
   var isBracketOpen = false.obs;
+  var isExpressionComplete = false.obs;
 
   resetAll() {
     firstNumber.value = '';
@@ -57,6 +57,7 @@ class SimpleCalculatorController extends GetxController {
     result.value = '';
     expression.value = '';
     isBracketOpen.value = false;
+    isExpressionComplete.value = false;
   }
 
   del() {
@@ -66,11 +67,27 @@ class SimpleCalculatorController extends GetxController {
     }
   }
 
+  bool calculate() {
+    bool res = true;
+    if (!isExpressionComplete.value) return false;
+    expression.value = expression.value.replaceAll(RegExp(r'x'), '*');
+
+    Parser p = Parser();
+    Expression exp = p.parse(expression.value);
+    ContextModel cm = ContextModel();
+    result.value = exp.evaluate(EvaluationType.REAL, cm).toString();
+    expression.value = result.value;
+
+    return res;
+  }
+
   input(String input) {
     if (input == '( )') {
       input = isBracketOpen.value ? ')' : '(';
       isBracketOpen.value = !isBracketOpen.value;
     }
+
+    isExpressionComplete.value = input.isNum;
     expression.value += input;
   }
 
