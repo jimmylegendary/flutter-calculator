@@ -30,6 +30,8 @@ dependencies:
   get: ^4.3.4
   transition:
   getwidget:
+  font_awesome_flutter:
+  google_fonts:
 
 dev_dependencies:
   flutter_test:
