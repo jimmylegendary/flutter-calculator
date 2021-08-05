@@ -14,52 +14,53 @@ class NumbersPad extends StatelessWidget {
           children: [
             Expanded(
                 child: CalcTextButton(
-                    text: '7', onPressed: () => contoller.input('7'))),
+                    text: '7', onPressed: () => contoller.buttonClicked('7'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '8', onPressed: () => contoller.input('8'))),
+                    text: '8', onPressed: () => contoller.buttonClicked('8'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '9', onPressed: () => contoller.input('9'))),
+                    text: '9', onPressed: () => contoller.buttonClicked('9'))),
           ],
         ),
         Row(
           children: [
             Expanded(
                 child: CalcTextButton(
-                    text: '4', onPressed: () => contoller.input('4'))),
+                    text: '4', onPressed: () => contoller.buttonClicked('4'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '5', onPressed: () => contoller.input('5'))),
+                    text: '5', onPressed: () => contoller.buttonClicked('5'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '6', onPressed: () => contoller.input('6'))),
+                    text: '6', onPressed: () => contoller.buttonClicked('6'))),
           ],
         ),
         Row(
           children: [
             Expanded(
                 child: CalcTextButton(
-                    text: '1', onPressed: () => contoller.input('1'))),
+                    text: '1', onPressed: () => contoller.buttonClicked('1'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '2', onPressed: () => contoller.input('2'))),
+                    text: '2', onPressed: () => contoller.buttonClicked('2'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '3', onPressed: () => contoller.input('3'))),
+                    text: '3', onPressed: () => contoller.buttonClicked('3'))),
           ],
         ),
         Row(
           children: [
             Expanded(
                 child: CalcTextButton(
-                    text: '.', onPressed: () => contoller.input('.'))),
+                    text: '.', onPressed: () => contoller.buttonClicked('.'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '0', onPressed: () => contoller.input('0'))),
+                    text: '0', onPressed: () => contoller.buttonClicked('0'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '00', onPressed: () => contoller.input('00'))),
+                    text: '00',
+                    onPressed: () => contoller.buttonClicked('00'))),
           ],
         )
       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_calculator/assets/colors.dart';
 import 'package:flutter_calculator/pages/simple_calc.dart';
 import 'package:flutter_calculator/widgets/atoms/screen_text.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ class MainScreen extends StatelessWidget {
             padding: const EdgeInsets.only(right: 12),
             child: ScreenText(
               text: controller.expression.value,
+              textColor: CalcColor.MAIN_SCREEN_TEXT,
               fontSize: 46,
             ),
           ),

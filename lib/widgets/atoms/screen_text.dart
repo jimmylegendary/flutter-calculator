@@ -6,18 +6,20 @@ class ScreenText extends StatelessWidget {
   ScreenText({
     Key? key,
     this.fontSize = 24,
+    this.textColor = CalcColor.BLACK,
     required this.text,
   }) : super(key: key);
 
   final String text;
   final double fontSize;
+  final Color textColor;
   @override
   Widget build(BuildContext context) {
     return Text(text,
         textAlign: TextAlign.right,
         style: GoogleFonts.rubik(
           textStyle: TextStyle(
-            color: CalcColor.SCREEN_TEXT,
+            color: textColor,
             fontSize: fontSize,
           ),
         ));

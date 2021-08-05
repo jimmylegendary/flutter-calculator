@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_calculator/assets/colors.dart';
 import 'package:flutter_calculator/pages/simple_calc.dart';
 import 'package:flutter_calculator/widgets/atoms/screen_text.dart';
 import 'package:get/get.dart';
@@ -38,14 +39,15 @@ class PreviewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.only(right: 12),
-        child: ScreenText(
-          text: contoller.result.value,
-        ),
-      ),
-      alignment: Alignment.centerRight,
-    );
+    return Obx(() => Container(
+          child: Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: ScreenText(
+              text: contoller.previewResult.value,
+              textColor: CalcColor.PREVIEW_SCREEN_TEXT,
+            ),
+          ),
+          alignment: Alignment.centerRight,
+        ));
   }
 }

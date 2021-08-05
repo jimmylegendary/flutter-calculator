@@ -59,7 +59,7 @@ class SimpleCalculator extends GetView<SimpleCalculatorController> {
 class SimpleCalculatorController extends GetxController {
   var firstNumber = ''.obs;
   var secondNumber = ''.obs;
-  var result = ''.obs;
+  var previewResult = ''.obs;
   var operation = ''.obs;
   var expression = ''.obs;
   var isBracketOpen = false.obs;
@@ -69,7 +69,7 @@ class SimpleCalculatorController extends GetxController {
     firstNumber.value = '';
     secondNumber.value = '';
     operation.value = '';
-    result.value = '';
+    previewResult.value = '';
     expression.value = '';
     isBracketOpen.value = false;
     isExpressionComplete.value = false;
@@ -82,17 +82,22 @@ class SimpleCalculatorController extends GetxController {
     }
   }
 
+  preCalculate() {
+    String str = expression.value
+        .replaceAll(RegExp(r'x'), '*')
+        .replaceAll(RegExp(r'÷'), '/');
+
+    Parser p = Parser();
+    Expression exp = p.parse(str);
+    ContextModel cm = ContextModel();
+    previewResult.value = exp.evaluate(EvaluationType.REAL, cm).toString();
+  }
+
   bool calculate() {
     bool res = true;
     if (!isExpressionComplete.value) return false;
-    expression.value = expression.value.replaceAll(RegExp(r'x'), '*');
-    expression.value = expression.value.replaceAll(RegExp(r'÷'), '/');
 
-    Parser p = Parser();
-    Expression exp = p.parse(expression.value);
-    ContextModel cm = ContextModel();
-    result.value = exp.evaluate(EvaluationType.REAL, cm).toString();
-    expression.value = result.value;
+    expression.value = previewResult.value;
 
     return res;
   }
@@ -103,8 +108,37 @@ class SimpleCalculatorController extends GetxController {
       isBracketOpen.value = !isBracketOpen.value;
     }
 
-    isExpressionComplete.value = input.isNum;
     expression.value += input;
+  }
+
+  bool buttonClicked(String value) {
+    bool res = true;
+    switch (value) {
+      case 'DEL':
+        del();
+        break;
+      case 'AC':
+        resetAll();
+        break;
+      case '=':
+        res = calculate();
+        previewResult.value = '';
+        break;
+      default:
+        input(value);
+    }
+    if (expression.value.length != 0 && value != '=') {
+      String str = expression.value.substring(expression.value.length - 1);
+      isExpressionComplete.value = str.isNum;
+
+      if (isExpressionComplete.value) {
+        preCalculate();
+      } else {
+        previewResult.value = '';
+      }
+    }
+
+    return res;
   }
 
   @override
