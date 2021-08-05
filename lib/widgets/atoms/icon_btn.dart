@@ -21,17 +21,17 @@ class CalcIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 5),
-      child: GFButton(
-        shape: GFButtonShape.pills,
+      child: GFIconButton(
+        shape: GFIconButtonShape.pills,
         color: bgColor,
         icon: Icon(
           icon,
           color: CalcColor.NUMBER_TEXT_HIGHLIGHT,
         ),
         onPressed: () => this.onPressed(),
-        boxShadow: BoxShadow(
-          color: CalcColor.BUTTON_SHADOW,
-        ),
+        // boxShadow: BoxShadow(
+        //   color: CalcColor.BUTTON_SHADOW,
+        // ),
       ),
     );
   }

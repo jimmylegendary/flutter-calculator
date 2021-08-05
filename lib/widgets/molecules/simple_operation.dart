@@ -9,47 +9,72 @@ class SimpleOperationPad extends StatelessWidget {
   final contoller = Get.find<SimpleCalculatorController>();
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        Column(
+        Row(
           children: [
-            CalcTextHLButton(
-              text: '/',
-              onPressed: () => contoller.input('/'),
+            Expanded(
+              child: CalcTextHLButton(
+                text: '/',
+                onPressed: () => contoller.input('/'),
+              ),
             ),
-            CalcTextHLButton(
-              text: '-',
-              onPressed: () => contoller.input('-'),
-            ),
-            CalcTextHLButton(
-              text: 'x',
-              onPressed: () => contoller.input('x'),
-            ),
-            CalcTextHLButton(
-              text: '+',
-              onPressed: () => contoller.input('+'),
+            Expanded(
+              child: CalcTextHLButton(
+                text: 'DEL',
+                onPressed: () => contoller.del(),
+                bgColor: CalcColor.BUTTON_BG_HIGHLIGHT2,
+              ),
             ),
           ],
         ),
-        Column(
+        Row(
           children: [
-            CalcTextHLButton(
-              text: 'DEL',
-              onPressed: () => contoller.del(),
-              bgColor: CalcColor.BUTTON_BG_HIGHLIGHT2,
+            Expanded(
+              child: CalcTextHLButton(
+                text: 'X',
+                onPressed: () => contoller.input('x'),
+              ),
             ),
-            CalcTextHLButton(
-              text: 'AC',
-              onPressed: () => contoller.resetAll(),
-              bgColor: CalcColor.BUTTON_BG_HIGHLIGHT2,
+            Expanded(
+              child: CalcTextHLButton(
+                text: 'AC',
+                onPressed: () => contoller.resetAll(),
+                bgColor: CalcColor.BUTTON_BG_HIGHLIGHT2,
+              ),
             ),
-            CalcTextHLButton(
-              text: '( )',
-              onPressed: () => contoller.input('( )'),
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: CalcTextHLButton(
+                text: '/',
+                onPressed: () => contoller.input('-'),
+              ),
             ),
-            CalcTextHLButton(
-              text: '=',
-              onPressed: () => contoller.calculate(),
+            Expanded(
+              child: CalcTextHLButton(
+                text: '( )',
+                onPressed: () => contoller.input('( )'),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: CalcTextHLButton(
+                text: '+',
+                onPressed: () => contoller.input('+'),
+              ),
+            ),
+            Expanded(
+              child: CalcTextHLButton(
+                text: '=',
+                onPressed: () => contoller.calculate(),
+                bgColor: Color(0xFF179B17),
+              ),
             ),
           ],
         ),

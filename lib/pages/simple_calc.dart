@@ -29,10 +29,16 @@ class SimpleCalculator extends GetView<SimpleCalculatorController> {
               PreviewScreen(),
               SizedBox(height: 40),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  NumbersPad(),
-                  SimpleOperationPad(),
+                  Expanded(
+                    child: NumbersPad(),
+                    flex: 6,
+                  ),
+                  Expanded(
+                    child: SimpleOperationPad(),
+                    flex: 4,
+                  )
                 ],
               )
             ],
