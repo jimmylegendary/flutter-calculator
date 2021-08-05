@@ -59,13 +59,19 @@ class SimpleCalculatorController extends GetxController {
     isBracketOpen.value = false;
   }
 
+  del() {
+    if (expression.value.length > 0) {
+      expression.value =
+          expression.value.substring(0, expression.value.length - 1);
+    }
+  }
+
   input(String input) {
     if (input == '( )') {
       input = isBracketOpen.value ? ')' : '(';
       isBracketOpen.value = !isBracketOpen.value;
     }
     expression.value += input;
-    print(expression);
   }
 
   @override

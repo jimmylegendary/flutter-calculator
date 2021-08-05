@@ -35,7 +35,7 @@ class SimpleOperationPad extends StatelessWidget {
           children: [
             CalcTextHLButton(
               text: 'DEL',
-              onPressed: () => contoller.input('DEL'),
+              onPressed: () => contoller.del(),
               bgColor: CalcColor.BUTTON_BG_HIGHLIGHT2,
             ),
             CalcTextHLButton(
