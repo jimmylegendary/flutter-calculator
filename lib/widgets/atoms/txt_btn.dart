@@ -24,7 +24,7 @@ class CalcTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5),
+      padding: EdgeInsets.all(5),
       child: GFButton(
         text: this.text,
         shape: GFButtonShape.pills,
@@ -32,7 +32,10 @@ class CalcTextButton extends StatelessWidget {
         textStyle: TextStyle(
           fontWeight: FontWeight.bold,
           color: textColor,
+          fontSize: 35,
         ),
+        padding: EdgeInsets.symmetric(horizontal: 3),
+        size: 100,
         onPressed: () => this.onPressed(),
         boxShadow: BoxShadow(
           color: CalcColor.BUTTON_SHADOW,

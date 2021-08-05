@@ -15,8 +15,8 @@ class SimpleOperationPad extends StatelessWidget {
           children: [
             Expanded(
               child: CalcTextHLButton(
-                text: '/',
-                onPressed: () => contoller.input('/'),
+                text: '÷',
+                onPressed: () => contoller.input('÷'),
               ),
             ),
             Expanded(
@@ -50,7 +50,7 @@ class SimpleOperationPad extends StatelessWidget {
             Expanded(
               child: CalcTextHLButton(
                 text: '/',
-                onPressed: () => contoller.input('-'),
+                onPressed: () => contoller.input('/'),
               ),
             ),
             Expanded(

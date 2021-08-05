@@ -45,6 +45,7 @@ class PreviewScreen extends StatelessWidget {
           text: contoller.result.value,
         ),
       ),
+      alignment: Alignment.centerRight,
     );
   }
 }

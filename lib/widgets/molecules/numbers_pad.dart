@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calculator/pages/simple_calc.dart';
-import 'package:flutter_calculator/widgets/atoms/icon_btn.dart';
 import 'package:flutter_calculator/widgets/atoms/txt_btn.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class NumbersPad extends StatelessWidget {
@@ -19,36 +17,36 @@ class NumbersPad extends StatelessWidget {
                     text: '7', onPressed: () => contoller.input('7'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '8', onPressed: () => contoller.input('9'))),
+                    text: '8', onPressed: () => contoller.input('8'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '9', onPressed: () => contoller.input('8'))),
+                    text: '9', onPressed: () => contoller.input('9'))),
           ],
         ),
         Row(
           children: [
             Expanded(
                 child: CalcTextButton(
-                    text: '4', onPressed: () => contoller.input('6'))),
+                    text: '4', onPressed: () => contoller.input('4'))),
             Expanded(
                 child: CalcTextButton(
                     text: '5', onPressed: () => contoller.input('5'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '6', onPressed: () => contoller.input('4'))),
+                    text: '6', onPressed: () => contoller.input('6'))),
           ],
         ),
         Row(
           children: [
             Expanded(
                 child: CalcTextButton(
-                    text: '1', onPressed: () => contoller.input('3'))),
+                    text: '1', onPressed: () => contoller.input('1'))),
             Expanded(
                 child: CalcTextButton(
                     text: '2', onPressed: () => contoller.input('2'))),
             Expanded(
                 child: CalcTextButton(
-                    text: '3', onPressed: () => contoller.input('1'))),
+                    text: '3', onPressed: () => contoller.input('3'))),
           ],
         ),
         Row(

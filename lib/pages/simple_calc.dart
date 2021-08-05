@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calculator/pages/calculator_app_bar.dart';
@@ -22,11 +24,15 @@ class SimpleCalculator extends GetView<SimpleCalculatorController> {
           padding: EdgeInsets.all(12),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
+            children: [
               Expanded(
                 child: MainScreen(),
+                flex: 2,
               ),
-              PreviewScreen(),
+              Expanded(
+                child: PreviewScreen(),
+                flex: 1,
+              ),
               SizedBox(height: 40),
               Row(
                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -77,6 +83,7 @@ class SimpleCalculatorController extends GetxController {
     bool res = true;
     if (!isExpressionComplete.value) return false;
     expression.value = expression.value.replaceAll(RegExp(r'x'), '*');
+    expression.value = expression.value.replaceAll(RegExp(r'÷'), '/');
 
     Parser p = Parser();
     Expression exp = p.parse(expression.value);

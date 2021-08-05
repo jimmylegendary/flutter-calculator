@@ -15,6 +15,7 @@ class MainScreen extends StatelessWidget {
               fontSize: 46,
             ),
           ),
+          alignment: Alignment.bottomRight,
         ));
   }
 }
